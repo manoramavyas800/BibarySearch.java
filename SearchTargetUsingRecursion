@@ -1,0 +1,32 @@
+// USE RECURSION TO SEARCH TARGET
+
+import java.util.Scanner;
+
+public class BinarySearch {
+    static boolean binarySearch(int[] arr, int st, int end, int target) {
+        if (st > end) {
+            return false;
+        }
+
+        int mid = (st + end) / 2;
+        if (target == arr[mid]) {
+            return true;
+        } else if (target < arr[mid]) {
+            return binarySearch(arr, st, mid - 1, target);
+
+        } else {
+            return binarySearch(arr, mid + 1, end, target);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
+       System.out.println(binarySearch(arr, 0, arr.length - 1, target));
+
+    }
+}
