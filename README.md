@@ -1,1 +1,1 @@
-# BibarySearch.java
+# BinarySearch.java
