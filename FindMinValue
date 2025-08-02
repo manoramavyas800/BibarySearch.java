@@ -1,0 +1,34 @@
+
+//find min value in rotated arr
+
+import java.util.Scanner;
+public class BinarySearch{
+   static int findMin(int[]arr){
+       int n=arr.length;
+       int st=0,end=n;
+       int ans=-1;
+
+       while(st<=end){
+           int mid=st+(end-st)/2;
+           if(arr[mid]<=arr[n-1]){
+               ans=mid;
+               end=mid-1;
+           }else{
+               st=mid+1;
+           }
+
+       }
+       return ans;
+   }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int ans = findMin(arr);
+        System.out.println(ans);
+    }
+}
