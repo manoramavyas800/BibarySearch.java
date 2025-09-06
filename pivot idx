@@ -1,0 +1,33 @@
+
+import java.util.Scanner;
+
+public class BinarySearch {
+    static int pivotIdx(int[]arr){
+        int n=arr.length;
+        int st=0,end=n-1;
+        int ans=-1;
+        while(st<=end){
+            int mid=(st+end)/2;
+            if(arr[mid]<=arr[n-1]){
+                ans=mid;
+                end=mid-1;
+            }else{
+                st=mid+1;
+            }
+        }
+        return ans;
+
+    }
+
+public static void main(String[] args) {
+   Scanner scn=new Scanner(System.in);
+   int n=scn.nextInt();
+   int[] arr=new int[n];
+   for(int i=0;i<n;i++){
+       arr[i]=scn.nextInt();
+   }
+ int pivot=pivotIdx(arr);
+   System.out.println(pivot);
+
+    }
+}
